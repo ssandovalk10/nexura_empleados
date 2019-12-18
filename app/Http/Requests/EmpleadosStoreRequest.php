@@ -13,7 +13,7 @@ class EmpleadosStoreRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -30,6 +30,7 @@ class EmpleadosStoreRequest extends FormRequest
             'sexo'              => 'required',
             'area_id'           => 'required',
             'description'       => 'required',
+            'role'               => 'required',
           
         ];
         // if($this->get('file'))
@@ -48,9 +49,11 @@ class EmpleadosStoreRequest extends FormRequest
             'area_id.required'              => 'El Area es Requerido',
             'description.required'          => 'La Descripcion es requerido',
             'email.unique'                  => 'El Correo Electronico ya Existe',
+            'role.required'                 => 'Debes de seleccionar un Rol',
                        
          
         ];
+        
         return $info;
     }
 

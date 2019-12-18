@@ -90,7 +90,12 @@
                     </div>
                 </div>
             </div>
-            @yield('content')
+           
+            <div class="row">
+                
+                      @yield('content')
+            </div>
+          
         </main>
     </div>
 </body>

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\EmpleadosStoreRequest;
+use App\Http\Requests\EmpleadosUpdateRequest;
 use Illuminate\Http\Request;
 use App\Empleado;
 use App\Role;
@@ -54,7 +56,7 @@ class EmpleadosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EmpleadosStoreRequest $request)
     {
         //ALMACENAR EMPLEADO
             $empleado = Empleado::create([
@@ -148,7 +150,7 @@ class EmpleadosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(EmpleadosUpdateRequest $request, $id)
     {
         $empleado = Empleado::findOrFail($id);
 

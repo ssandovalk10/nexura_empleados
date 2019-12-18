@@ -13,7 +13,7 @@ class EmpleadosUpdateRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -27,10 +27,11 @@ class EmpleadosUpdateRequest extends FormRequest
         $rules = [
             
             'nombre'            => 'required|',
-            'email'             => 'required|email|max:255|unique:empleados',
+            'email'             => 'required|email|max:255',
             'sexo'              => 'required',
             'area_id'           => 'required',
             'description'       => 'required',
+            'role'               => 'required',
           
         ];
         // if($this->get('file'))
@@ -48,7 +49,7 @@ class EmpleadosUpdateRequest extends FormRequest
             'sexo.required'                 => 'El Sexo es requerido',
             'area_id.required'              => 'El Area es Requerido',
             'description.required'          => 'La Descripcion es requerido',
-            'email.unique'                  => 'El Correo Electronico ya Existe',
+            'role.required'                 => 'Debes de seleccionar un Rol',
                        
          
         ];

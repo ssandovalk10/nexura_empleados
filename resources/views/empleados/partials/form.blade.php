@@ -9,7 +9,7 @@
             </div>
         </div>
         
-        <div class="form-group row">
+        <div class="form-group row ">
 
           <label for="email" class="col-md-3">Correo electrónico *</label>
             <div class="col-md-7">
@@ -87,12 +87,18 @@
                 
                    @foreach($roles as $rol) 
                   <div class="form-check">
-                  <input type="checkbox" class="form-check-input" id="rol" value="{{$rol->id}}" name="role[]">
+                  <input type="checkbox" class="form-check-input" id="rol" value="{{$rol->id}}" name="role[]" >
 
                   
                   <label class="form-check-label" for="exampleCheck1">{{$rol->nombre}}</label>
                    </div>
                   @endforeach
+
+                  @error('role')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
              
             </div>         
         </div>
