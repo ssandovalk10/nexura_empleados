@@ -19,7 +19,7 @@ class CreateEmpleadosTable extends Migration
             $table->string('email');
             $table->string('sexo');
             $table->integer('area_id');
-            $table->integer('boletin');
+            $table->integer('boletin')->unsigned();
             $table->text('description');
             $table->timestamps();
         });

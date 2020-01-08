@@ -95,7 +95,7 @@ class EmpleadosController extends Controller
             $rol_empleado = Empleado_rol::create([
 
                     'empleado_id' => $empleado,
-                    'rol_id'     => $r,
+                    'role_id'     => $r,
 
             ]);
         } 
@@ -138,9 +138,16 @@ class EmpleadosController extends Controller
         }
 
 
+        $roles_empleado = [];
+        foreach( $empleado->roles as $r)
+        {
+          $roles_empleado[$r->pivot->role_id] = $r->pivot->role_id;
+        }
 
 
-        return view('empleados.edit', compact('areas', 'roles'))->with('empleado', $empleado);
+
+
+        return view('empleados.edit', compact('areas', 'roles', 'roles_empleado'))->with('empleado', $empleado);
     }
 
     /**
@@ -199,7 +206,7 @@ class EmpleadosController extends Controller
             $rol_empleado = Empleado_rol::create([
 
                     'empleado_id' => $id,
-                    'rol_id'     => $r,
+                    'role_id'     => $r,
 
             ]);
         }                         

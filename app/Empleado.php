@@ -15,4 +15,9 @@ class Empleado extends Model
 
     	 return $this->belongsTo('App\Areas');
     } 
+
+    public function roles(){
+
+    	return $this->belongsToMany('App\Role', 'empleado_rols');
+    }
 }

@@ -5,7 +5,7 @@
           <label for="nombre" class="col-md-3">Nombre completo *</label>
             <div class="col-md-7">
                   
-                  {{ Form::text('nombre', null, ['class' => 'form-control', 'id' => 'nombre', 'placeholder' => 'Nombre completo', 'required'=>'required']) }}
+                  {{ Form::text('nombre', null, ['class' => 'form-control', 'id' => 'nombre', 'placeholder' => 'Nombre completo', ]) }}
             </div>
         </div>
         
@@ -13,7 +13,7 @@
 
           <label for="email" class="col-md-3">Correo electrónico *</label>
             <div class="col-md-7">
-              {{ Form::email('email', null, ['class' => 'form-control', 'id' => 'email', 'placeholder' => 'Correo electrónico', 'required'=>'required']) }}
+              {{ Form::email('email', null, ['class' => 'form-control', 'id' => 'email', 'placeholder' => 'Correo electrónico', ]) }}
             </div>
         </div>
         
@@ -49,7 +49,7 @@
                   {!! Form::select('area_id',
                [ null => '--Seleccione ---']+ $areas,
                 null, 
-                ['class' => 'form-control', 'required' => 'required']) !!}
+                ['class' => 'form-control', 'id'=>'area_id']) !!}
               </div>
         </div>
 
@@ -84,27 +84,37 @@
 
           <label for="role" class="col-md-3">Roles *</label>  
             <div class="col-md-7">
+               <div class="form-check">
                 
-                   @foreach($roles as $rol) 
-                  <div class="form-check">
-                  <input type="checkbox" class="form-check-input" id="rol" value="{{$rol->id}}" name="role[]" >
+                @foreach($roles as $rol)
+                 
+               
+                   <div class="form-check">
 
-                  
-                  <label class="form-check-label" for="exampleCheck1">{{$rol->nombre}}</label>
+                    <input type="checkbox" class="form-check-input" id="rol" value="{{$rol->id}}" name="role[]" >
+               
+                    <label class="form-check-label" for="exampleCheck1">{{$rol->nombre}}</label>
                    </div>
-                  @endforeach
+                                         
+                @endforeach
+                 </div>
+                         
+                       
 
-                  @error('role')
-                      <span class="invalid-feedback" role="alert">
-                          <strong>{{ $message }}</strong>
-                      </span>
-                  @enderror
+                     <hr>
+              
+                    @error('role')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
              
             </div>         
         </div>
 
-
-        <button type="submit" class="btn btn-primary">Guardar</button>
+          
+        
+        <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Guardar</button>
 
 
     </form>

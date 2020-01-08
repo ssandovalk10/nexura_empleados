@@ -47,11 +47,11 @@
                    <div class="row">
                        <div class="col-md-12">
                            
-                           {{ Form::model($empleado,  ['route'=>['empleados.update', $empleado->id ], 'method'=>'PUT', 'files'=>true ])}}
+                           {{ Form::model($empleado,  ['route'=>['empleados.update', $empleado->id ], 'method'=>'PUT', 'id'=>'formEmpleado' ])}}
                
 
 
-                              @include('empleados.partials.form')
+                              @include('empleados.partials.form2')
 
 
                           {!! Form::close() !!}

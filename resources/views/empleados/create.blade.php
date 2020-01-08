@@ -51,7 +51,7 @@
                        <div class="col-md-12">
                             
 
-                           {{  Form::open(['route' => 'empleados.store', 'method' => 'POST']) }} 
+                           {{  Form::open(['route' => 'empleados.store', 'method' => 'POST', 'id'=>'formEmpleado']) }} 
 
                               @csrf
                               @include('empleados.partials.form')

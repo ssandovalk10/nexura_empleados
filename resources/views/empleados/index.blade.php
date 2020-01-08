@@ -17,7 +17,7 @@
 
 
                     <div class="col">
-                      <a href="{{route('empleados.create')}}" class="btn btn-md btn-primary">Crear</a>
+                      <a href="{{route('empleados.create')}}" class="btn btn-md btn-primary"><i class="fa fa-plus"></i> Crear</a>
                     </div>
 
                   </div>

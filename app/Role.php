@@ -11,4 +11,9 @@ class Role extends Model
       	'nombre',
     ];
      
+
+    public function empleados(){
+
+    	return $this->belongsToMany('App\Empleado');
+    }
 }
