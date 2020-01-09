@@ -38,8 +38,7 @@ $().ready(function(){
                },
 
               description:{
-               	required: "Por favor ingrese una descripcion",
-               	minlength : "Campo demasiado corto, minimo 5 characters"
+               	required: "Por favor ingrese una descripcion"
               },
               area_id: {
 									required: "Por favor Seleccione una opcion"

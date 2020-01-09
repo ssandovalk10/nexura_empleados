@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Empleado;
 use App\Role;
 use App\Areas;
-use App\Empleado_rol;
+use App\Empleado_role;
 
 
 class EmpleadosController extends Controller
@@ -92,7 +92,7 @@ class EmpleadosController extends Controller
         foreach($role as $r)
         {
 
-            $rol_empleado = Empleado_rol::create([
+            $rol_empleado = Empleado_role::create([
 
                     'empleado_id' => $empleado,
                     'role_id'     => $r,
@@ -126,26 +126,22 @@ class EmpleadosController extends Controller
        $empleado = Empleado::findOrFail($id);
 
 
-        $roles= Role::get();
-        
+        $roles= Role::get();        
         $areaSql = Areas::get();
 
         $areas = [];
-
         foreach($areaSql as $area)
         {
              $areas[$area->id] = $area->nombre;
         }
-
 
         $roles_empleado = [];
         foreach( $empleado->roles as $r)
         {
           $roles_empleado[$r->pivot->role_id] = $r->pivot->role_id;
         }
-
-
-
+        
+        //dd($roles_empleado);
 
         return view('empleados.edit', compact('areas', 'roles', 'roles_empleado'))->with('empleado', $empleado);
     }
@@ -182,18 +178,18 @@ class EmpleadosController extends Controller
     }
 
 
-      public function updateroles($id , $role)
+    public function updateroles($id , $role)
     {
             
         //Busco los todos los roles que tiene el empleado
-        $rolslq = Empleado_rol::where('empleado_id', $id)
+        $rolslq = Empleado_role::where('empleado_id', $id)
                                 ->select('id')
                                 ->get();
 
-        //Recorro el arreglo y los elimino
+        //Recorro el arreglo y los eliminos
         foreach ($rolslq as $rol) {
                                  
-            $roluser = Empleado_rol::findOrFail($rol->id);
+            $roluser = Empleado_role::findOrFail($rol->id);
             $roluser->delete();
 
         }
@@ -203,7 +199,7 @@ class EmpleadosController extends Controller
         foreach($role as $r)
         {
 
-            $rol_empleado = Empleado_rol::create([
+            $rol_empleado = Empleado_role::create([
 
                     'empleado_id' => $id,
                     'role_id'     => $r,

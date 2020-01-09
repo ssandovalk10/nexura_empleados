@@ -12,8 +12,8 @@ class Role extends Model
     ];
      
 
-    public function empleados(){
-
+    public function Empleado()
+    {
     	return $this->belongsToMany('App\Empleado');
     }
 }

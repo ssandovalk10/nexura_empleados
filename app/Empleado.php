@@ -18,6 +18,6 @@ class Empleado extends Model
 
     public function roles(){
 
-    	return $this->belongsToMany('App\Role', 'empleado_rols');
+    	return $this->belongsToMany('App\Role');
     }
 }
